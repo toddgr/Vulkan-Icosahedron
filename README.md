@@ -37,4 +37,11 @@ VkPipelineStageFlags waitAtBottom = VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT;
 VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT = 0x00000001,
 VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT = 0x00000002,
 . . .
-#endif```
+#endif
+```
+
+## Create Your Own Vertex Data
+
+This branch is used to get familiar with creating unique vertex data with Vulkan. 
+
+The video demonstrating this vertex data can be found here:
