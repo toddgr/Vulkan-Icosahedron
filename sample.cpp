@@ -382,7 +382,7 @@ struct sporadicBuf	Sporadic;			// cpu struct to hold miscellaneous information i
 int				Mode;					// 0 = use colors, 1 = use textures, ...
 
 MyBuffer		MySceneUniformBuffer;
-MyTexture		MyPuppyTexture;			// the cute puppy texture struct
+MyTexture		GlitterTexture;			// the cute puppy texture struct
 MyBuffer		MySporadicUniformBuffer;
 MyBuffer		MyObjectUniformBuffer;
 MyBuffer		MyVertexDataBuffer;
@@ -567,8 +567,8 @@ InitGraphics( )
 	Init05UniformBuffer( sizeof(Object),   	&MyObjectUniformBuffer );
 	Fill05DataBuffer( MyObjectUniformBuffer,	(void *) &Object );
 
-	Init05MyVertexDataBuffer(  sizeof(NewVertexData), &MyVertexDataBuffer );
-	Fill05DataBuffer( MyVertexDataBuffer,			(void *) NewVertexData );
+	Init05MyVertexDataBuffer(  sizeof(IcosaVertexData), &MyVertexDataBuffer );
+	Fill05DataBuffer( MyVertexDataBuffer,			(void *)IcosaVertexData );
 
 	Init05MyVertexDataBuffer(  sizeof(JustNewVertexData), &MyJustVertexDataBuffer );
 	Fill05DataBuffer( MyJustVertexDataBuffer,               (void *) JustNewVertexData );
@@ -579,8 +579,8 @@ InitGraphics( )
 	Init06CommandPools();
 	Init06CommandBuffers();
 
-	Init07TextureSampler( &MyPuppyTexture );
-	Init07TextureBufferAndFillFromBmpFile("puppy1.bmp", &MyPuppyTexture);
+	Init07TextureSampler( &GlitterTexture );
+	Init07TextureBufferAndFillFromBmpFile("glitter.bmp", &GlitterTexture);
 
 	Init08Swapchain( );
 
@@ -2792,8 +2792,8 @@ Init13DescriptorSets( )
 		vdbi2.range = sizeof(Object);
 
 	VkDescriptorImageInfo				vdii0;
-		vdii0.sampler   = MyPuppyTexture.texSampler;
-		vdii0.imageView = MyPuppyTexture.texImageView;
+		vdii0.sampler   = GlitterTexture.texSampler;
+		vdii0.imageView = GlitterTexture.texImageView;
 		vdii0.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
 
 	VkWriteDescriptorSet				vwds0;
@@ -4039,7 +4039,7 @@ RenderScene( )
 	}
 
 
-	const uint32_t vertexCount = sizeof(NewVertexData)     / sizeof(NewVertexData[0]);
+	const uint32_t vertexCount = sizeof(IcosaVertexData)     / sizeof(IcosaVertexData[0]);
     const uint32_t indexCount  = sizeof(JustIndexData)  / sizeof(JustIndexData[0]);
     //const uint32_t instanceCount = 1;
     const uint32_t instanceCount = 1;

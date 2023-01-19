@@ -14,7 +14,7 @@ struct vertex
 };
 #endif
 
-struct vertex NewVertexData[] =
+struct vertex IcosaVertexData[] =
 {
 	// TRIANGLE AEI:
 	// vertex #A:
@@ -547,6 +547,62 @@ struct vertex NewVertexData[] =
 		{  0.,  1.,  0. },
 		{  0.3, 0. }
 	},
+
+};
+
+struct vertex KeyboardCommands[] =
+{
+	// ====== KEYBOARD COMMANDS =======
+	// triangle 1:
+	// vertex #0:
+	{
+		{ 0., 0., 4. },
+		{  0.,  0., -1. },
+		{  1.,  1.,  1. },
+		{  1., 0. }
+	},
+
+	// vertex #2:
+	{
+		{ 0.,  1., 4. },
+		{  0.,  0., -1. },
+		{  1.,  1.,  1. },
+		{  1., 1. }
+	},
+
+	// vertex #3:
+	{
+		{  1.,  0., 4. },
+		{  0.,  0., -1. },
+		{  1.,  1.,  1. },
+		{  0., 1. }
+	},
+
+
+	// triangle 2:
+	// vertex #0:
+	{
+		{ 0., 1., 4. },
+		{  0.,  0., -1. },
+		{  1.,  1.,  1. },
+		{  1., 0. }
+	},
+
+	// vertex #3:
+	{
+		{  1.,  0., 4. },
+		{  0.,  0., -1. },
+		{  1.,  1.,  1. },
+		{  0., 1. }
+	},
+
+	// vertex #1:
+	{
+		{  1., 1., 4. },
+		{  0.,  0., -1. },
+		{  1.,  1.,  1. },
+		{  0., 0. }
+	},
 };
 
 
@@ -652,7 +708,6 @@ struct vertex JustNewVertexData[] =
 		{  1., 1. }
 	},
 };
-
 
 
 struct vertex OriginalVertexData[ ] =
