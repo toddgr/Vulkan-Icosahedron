@@ -1,7 +1,7 @@
 # Vulkan-Playground
  Experimentation with Vulkan CS 559: Vulkan class at Oregon State University!
  
- Main branch is source code provided by Dr. Bailey.
+Source code provided by Dr. Bailey.
  
 Mike Bailey, Oregon State University
 mjb@cs.oregonstate.edu
