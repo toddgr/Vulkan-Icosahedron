@@ -160,7 +160,7 @@ const int RIGHT  = { 1 };
 // report on a result return:
 
 #define REPORT(s)		{ PrintVkError( result, s );  fflush(FpDebug); }
-#define HERE_I_AM(s)		if( Verbose )  { fprintf( FpDebug, "\n***** %s *****\n", s );  fflush(FpDebug); }
+#define HERE_I_AM(s)	if( Verbose )  { fprintf( FpDebug, "\n***** %s *****\n", s );  fflush(FpDebug); }
 
 
 // graphics parameters:
@@ -317,51 +317,51 @@ struct vertex
 // ********************************
 
 VkCommandBuffer			CommandBuffers[2];			// 2, because of double-buffering
-VkPipeline			ComputePipeline;
+VkPipeline				ComputePipeline;
 VkPipelineCache			ComputePipelineCache;
 VkPipelineLayout		ComputePipelineLayout;
 VkDataBuffer 			DataBuffer;
-VkImage				DepthStencilImage;
-VkImageView			DepthStencilImageView;
+VkImage					DepthStencilImage;
+VkImageView				DepthStencilImageView;
 VkDescriptorPool		DescriptorPool;
-VkDescriptorSetLayout		DescriptorSetLayouts[4];
+VkDescriptorSetLayout	DescriptorSetLayouts[4];
 VkDescriptorSet			DescriptorSets[4];
 //VkDebugReportCallbackEXT	ErrorCallback = (VkDebugReportCallbackEXT *)VK_NULL_HANDLE;
 VkDebugReportCallbackEXT	ErrorCallback = 0;
 VkEvent				Event;
 VkFence				Fence;
-VkFramebuffer			Framebuffers[2];
-VkCommandPool			GraphicsCommandPool;
+VkFramebuffer		Framebuffers[2];
+VkCommandPool		GraphicsCommandPool;
 VkPipeline			GraphicsPipeline;
-VkPipelineCache			GraphicsPipelineCache;
-VkPipelineLayout		GraphicsPipelineLayout;
+VkPipelineCache		GraphicsPipelineCache;
+VkPipelineLayout	GraphicsPipelineLayout;
 uint32_t			Height;
 VkInstance			Instance;
 VkExtensionProperties *		InstanceExtensions;
-VkLayerProperties *		InstanceLayers;
-VkLogicalDevice			LogicalDevice;
-GLFWwindow *			MainWindow;
-VkPhysicalDevice		PhysicalDevice;
+VkLayerProperties *			InstanceLayers;
+VkLogicalDevice				LogicalDevice;
+GLFWwindow *				MainWindow;
+VkPhysicalDevice			PhysicalDevice;
 VkPhysicalDeviceProperties	PhysicalDeviceProperties;
-uint32_t			PhysicalDeviceCount;
+uint32_t					PhysicalDeviceCount;
 VkPhysicalDeviceFeatures	PhysicalDeviceFeatures;
-VkImage *			PresentImages;
-VkImageView *			PresentImageViews;	// the swap chain image views
+VkImage *					PresentImages;
+VkImageView *				PresentImageViews;	// the swap chain image views
 VkQueue				Queue;
 VkRect2D			RenderArea;
-VkRenderPass			RenderPass; 
+VkRenderPass		RenderPass; 
 VkSemaphore			SemaphoreImageAvailable;
 VkSemaphore			SemaphoreRenderFinished;
-VkShaderModule			ShaderModuleFragment;
-VkShaderModule			ShaderModuleVertex;
+VkShaderModule		ShaderModuleFragment;
+VkShaderModule		ShaderModuleVertex;
 VkBuffer			StagingBuffer;
-VkDeviceMemory			StagingBufferMemory;
-VkSurfaceKHR			Surface;
-VkSwapchainKHR			SwapChain;
-VkCommandBuffer			TextureCommandBuffer;	// used for transfering texture from staging buffer to actual texture buffer
+VkDeviceMemory		StagingBufferMemory;
+VkSurfaceKHR		Surface;
+VkSwapchainKHR		SwapChain;
+VkCommandBuffer		TextureCommandBuffer;	// used for transfering texture from staging buffer to actual texture buffer
 VkImage				TextureImage;
-VkDeviceMemory			TextureImageMemory;
-VkCommandPool			TransferCommandPool;
+VkDeviceMemory		TextureImageMemory;
+VkCommandPool		TransferCommandPool;
 VkDebugReportCallbackEXT	WarningCallback;
 uint32_t			Width;
 
@@ -374,31 +374,33 @@ uint32_t			Width;
 // APPLICATION-RELATED GLOBAL VARIABLES:
 // *************************************
 
-int				ActiveButton;			// current button that is down
+int					ActiveButton;		// current button that is down
 FILE *				FpDebug;			// where to send debugging messages
-struct sceneBuf			Scene;				// cpu struct to hold light information
-struct objectBuf		Object;				// cpu struct to hold matrix information
-struct sporadicBuf		Sporadic;			// cpu struct to hold miscellaneous information information
-int				Mode;				// 0 = use colors, 1 = use textures, ...
-MyBuffer			MySceneUniformBuffer;
-MyTexture			MyPuppyTexture;			// the cute puppy texture struct
-MyBuffer			MySporadicUniformBuffer;
-MyBuffer			MyObjectUniformBuffer;
-MyBuffer			MyVertexDataBuffer;
-MyBuffer			MyJustIndexDataBuffer;
-MyBuffer			MyJustVertexDataBuffer;
-bool				NeedToExit;			// true means the program should exit
-int				NumInstances;			// # of instances to render
+struct sceneBuf		Scene;				// cpu struct to hold light information
+struct objectBuf	Object;				// cpu struct to hold matrix information
+struct sporadicBuf	Sporadic;			// cpu struct to hold miscellaneous information information
+int				Mode;					// 0 = use colors, 1 = use textures, ...
+
+MyBuffer		MySceneUniformBuffer;
+MyTexture		GlitterTexture;			// the cute puppy texture struct
+MyBuffer		MySporadicUniformBuffer;
+MyBuffer		MyObjectUniformBuffer;
+MyBuffer		MyVertexDataBuffer;
+MyBuffer		MyJustIndexDataBuffer;
+MyBuffer		MyJustVertexDataBuffer;
+
+bool			NeedToExit;			// true means the program should exit
+int				NumInstances;		// # of instances to render
 int				NumRenders;			// how many times the render loop has been called
-bool				Paused;				// true means don't animate
-float				Scale;				// scaling factor
-double				Time;
-bool				Verbose;			// true = write messages into a file
-int				Xmouse, Ymouse;			// mouse values
-float				Xrot, Yrot;			// rotation angles in degrees
-bool				UseIndexBuffer;			// true = use both vertex and index buffer, false = just use vertex buffer
-bool				UseLighting;			// true = use lighting for display
-bool				UseRotate;			// true = rotate-animate, false = use mouse for interaction
+bool			Paused;				// true means don't animate
+float			Scale;				// scaling factor
+double			Time;
+bool			Verbose;			// true = write messages into a file
+int				Xmouse, Ymouse;		// mouse values
+float			Xrot, Yrot;			// rotation angles in degrees
+bool			UseIndexBuffer;		// true = use both vertex and index buffer, false = just use vertex buffer
+bool			UseLighting;		// true = use lighting for display
+bool			UseRotate;			// true = rotate-animate, false = use mouse for interaction
 
 
 
@@ -481,7 +483,7 @@ int				ReadInt( FILE * );
 short				ReadShort( FILE * );
 
 
-
+
 // *************
 // MAIN PROGRAM:
 // *************
@@ -536,7 +538,7 @@ main( int argc, char * argv[ ] )
 	return 0;
 }
 
-
+
 void
 InitGraphics( )
 {
@@ -565,11 +567,11 @@ InitGraphics( )
 	Init05UniformBuffer( sizeof(Object),   	&MyObjectUniformBuffer );
 	Fill05DataBuffer( MyObjectUniformBuffer,	(void *) &Object );
 
-	Init05MyVertexDataBuffer(  sizeof(VertexData), &MyVertexDataBuffer );
-	Fill05DataBuffer( MyVertexDataBuffer,			(void *) VertexData );
+	Init05MyVertexDataBuffer(  sizeof(IcosaVertexData), &MyVertexDataBuffer );
+	Fill05DataBuffer( MyVertexDataBuffer,			(void *)IcosaVertexData );
 
-	Init05MyVertexDataBuffer(  sizeof(JustVertexData), &MyJustVertexDataBuffer );
-	Fill05DataBuffer( MyJustVertexDataBuffer,               (void *) JustVertexData );
+	Init05MyVertexDataBuffer(  sizeof(JustNewVertexData), &MyJustVertexDataBuffer );
+	Fill05DataBuffer( MyJustVertexDataBuffer,               (void *) JustNewVertexData );
 
 	Init05MyIndexDataBuffer(  sizeof(JustIndexData), &MyJustIndexDataBuffer );
 	Fill05DataBuffer( MyJustIndexDataBuffer,                (void *) JustIndexData );
@@ -577,8 +579,8 @@ InitGraphics( )
 	Init06CommandPools();
 	Init06CommandBuffers();
 
-	Init07TextureSampler( &MyPuppyTexture );
-	Init07TextureBufferAndFillFromBmpFile("puppy1.bmp", &MyPuppyTexture);
+	Init07TextureSampler( &GlitterTexture );
+	Init07TextureBufferAndFillFromBmpFile("glitter.bmp", &GlitterTexture);
 
 	Init08Swapchain( );
 
@@ -600,7 +602,6 @@ InitGraphics( )
 
 
 
-
 // **********************
 // CREATING THE INSTANCE:
 // **********************
@@ -615,7 +616,7 @@ Init01Instance( )
 	VkApplicationInfo vai;
 		vai.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
 		vai.pNext = nullptr;
-		vai.pApplicationName = "Vulkan Sample";
+		vai.pApplicationName = "Vulkan Playground";
 		vai.applicationVersion = 100;
 		vai.pEngineName = "";
 		vai.engineVersion = 1;
@@ -2791,8 +2792,8 @@ Init13DescriptorSets( )
 		vdbi2.range = sizeof(Object);
 
 	VkDescriptorImageInfo				vdii0;
-		vdii0.sampler   = MyPuppyTexture.texSampler;
-		vdii0.imageView = MyPuppyTexture.texImageView;
+		vdii0.sampler   = GlitterTexture.texSampler;
+		vdii0.imageView = GlitterTexture.texImageView;
 		vdii0.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
 
 	VkWriteDescriptorSet				vwds0;
@@ -4038,7 +4039,7 @@ RenderScene( )
 	}
 
 
-	const uint32_t vertexCount = sizeof(VertexData)     / sizeof(VertexData[0]);
+	const uint32_t vertexCount = sizeof(IcosaVertexData)     / sizeof(IcosaVertexData[0]);
     const uint32_t indexCount  = sizeof(JustIndexData)  / sizeof(JustIndexData[0]);
     //const uint32_t instanceCount = 1;
     const uint32_t instanceCount = 1;
@@ -4275,7 +4276,7 @@ InitGLFW( )
 
 	glfwWindowHint( GLFW_CLIENT_API, GLFW_NO_API );
 	glfwWindowHint( GLFW_RESIZABLE, GLFW_FALSE );
-	MainWindow = glfwCreateWindow( Width, Height, "Vulkan Sample", NULL, NULL );
+	MainWindow = glfwCreateWindow( Width, Height, "Grace Todd -- Vulkan Playground", NULL, NULL );
 
 	uint32_t count;
 	const char ** extensions = glfwGetRequiredInstanceExtensions (&count);
