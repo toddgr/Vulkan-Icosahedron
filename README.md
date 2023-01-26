@@ -44,4 +44,5 @@ VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT = 0x00000002,
 
 This branch is used to get familiar with creating unique vertex data with Vulkan. 
 
-The video demonstrating this vertex data can be found here:
+The video demonstrating this vertex data can be found here: https://youtu.be/1APOsJusOvg
+
