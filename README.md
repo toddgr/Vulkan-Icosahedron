@@ -4,7 +4,7 @@ This branch is used to get familiar with creating unique vertex data with Vulkan
 
 The video demonstrating this vertex data can be found here: https://youtu.be/1APOsJusOvg
 
-![Program screenshot](project1screenshot.JPG)
+![Program screenshot](project1screenshots.JPG)
 
 ---
  
