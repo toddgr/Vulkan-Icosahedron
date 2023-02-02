@@ -8,7 +8,7 @@ The video demonstrating this vertex data can be found here: https://youtu.be/1AP
 
 ---
  
-Source code provided by Dr. Bailey.
+Source code (Window creation, keyboard commands, etc) provided by Dr. Bailey.
  
 Mike Bailey, Oregon State University
 mjb@cs.oregonstate.edu
