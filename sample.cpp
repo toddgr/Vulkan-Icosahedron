@@ -385,9 +385,9 @@ MyBuffer		MySceneUniformBuffer;
 MyTexture		GlitterTexture;			// the cute puppy texture struct
 MyBuffer		MySporadicUniformBuffer;
 MyBuffer		MyObjectUniformBuffer;
-MyBuffer		MyVertexDataBuffer;
+MyBuffer		MyIcosaVertexDataBuffer;
 MyBuffer		MyJustIndexDataBuffer;
-MyBuffer		MyJustVertexDataBuffer;
+MyBuffer		MyJustIcosaVertexDataBuffer;
 
 bool			NeedToExit;			// true means the program should exit
 int				NumInstances;		// # of instances to render
@@ -567,11 +567,11 @@ InitGraphics( )
 	Init05UniformBuffer( sizeof(Object),   	&MyObjectUniformBuffer );
 	Fill05DataBuffer( MyObjectUniformBuffer,	(void *) &Object );
 
-	Init05MyVertexDataBuffer(  sizeof(IcosaVertexData), &MyVertexDataBuffer );
-	Fill05DataBuffer( MyVertexDataBuffer,			(void *)IcosaVertexData );
+	Init05MyVertexDataBuffer(  sizeof(IcosaVertexData), &MyIcosaVertexDataBuffer );
+	Fill05DataBuffer( MyIcosaVertexDataBuffer,			(void *)IcosaVertexData );
 
-	Init05MyVertexDataBuffer(  sizeof(JustNewVertexData), &MyJustVertexDataBuffer );
-	Fill05DataBuffer( MyJustVertexDataBuffer,               (void *) JustNewVertexData );
+	Init05MyVertexDataBuffer(  sizeof(JustIcosaVertexData), &MyJustIcosaVertexDataBuffer );
+	Fill05DataBuffer( MyJustIcosaVertexDataBuffer,               (void *)JustIcosaVertexData);
 
 	Init05MyIndexDataBuffer(  sizeof(JustIndexData), &MyJustIndexDataBuffer );
 	Fill05DataBuffer( MyJustIndexDataBuffer,                (void *) JustIndexData );
@@ -4023,8 +4023,8 @@ RenderScene( )
 
 	// all 3 buffer for geometry:
 
-        VkBuffer buffers[1]  = { MyVertexDataBuffer.buffer };
-        VkBuffer vBuffers[1] = { MyJustVertexDataBuffer.buffer };
+        VkBuffer buffers[1]  = { MyIcosaVertexDataBuffer.buffer };
+        VkBuffer vBuffers[1] = { MyJustIcosaVertexDataBuffer.buffer };
         VkBuffer iBuffer     = { MyJustIndexDataBuffer.buffer  };
 		VkDeviceSize offsets[1] = { 0 };
 
@@ -4041,7 +4041,6 @@ RenderScene( )
 
 	const uint32_t vertexCount = sizeof(IcosaVertexData)     / sizeof(IcosaVertexData[0]);
     const uint32_t indexCount  = sizeof(JustIndexData)  / sizeof(JustIndexData[0]);
-    //const uint32_t instanceCount = 1;
     const uint32_t instanceCount = 1;
     const uint32_t firstVertex = 0;
     const uint32_t firstIndex = 0;
